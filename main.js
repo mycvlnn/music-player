@@ -1,4 +1,6 @@
 // Learn aobut variable
 
+var fullName = "Hello F8";
+
 alert("Hello Chris lee");
-console.log("Hello world");
+console.log(fullName);
