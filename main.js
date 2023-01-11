@@ -1,26 +1,14 @@
 /**
-Arithmetic operators perform arithmetic on numbers (literals or variables).
-
-- + : Cộng
-- -  : trừ
-- *  : Nhân
-- /   : Chia
-- ** : Luỹ thừa
-- Chi lấy dư: %
-- Tăng 1 giá trị số: ++
-- Giảm 1 giá trị số: —
+ * 
+ *  Bài tập 1: Sử dụng kiến thức về toán tử gán và toán tử số học để tạo các biến a, b, c, d thỏa mãn các yêu cầu sau đây:
+        a là 1 số dương
+        b là 1 số âm
+        c là kết quả của a + b
+        d là kết quả của a - b
+ * 
  */
 
 var a = 1;
-var b = 2;
-
-var sum = a + b;
-var subtract = a - b;
-var multiple = a * b;
-var exponentiation = a ** b;
-var division = a / b;
-var remainder = a % b;
-a++;
-b++;
-
-console.log({ sum, subtract, multiple, exponentiation, division, remainder });
+var b = -1;
+var c = a + b;
+var d = a - b;
