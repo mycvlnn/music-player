@@ -1,5 +1,5 @@
 /**
- * Học về toán tử so sánh trong javascript
+ * Kiểu dữ liệu Booleancó 2 value là : true, false
  */
 
 const a = 1;
