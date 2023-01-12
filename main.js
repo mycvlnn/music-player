@@ -1,19 +1,8 @@
 /**
- *  Bài tập : Ôn tập về toán tử ++ và --
+ * Học về toán tử nối chuổi
  */
 
-var number = 6;
-
-var output = number++ + --number;
-
-console.log({ output });
-
-/**
-    var a = 1;
-    var b = ++a * a--;
-    console.log(b); // Output: ?
- */
-
-var x = 1;
-var y = ++x * x--;
-console.log(y); // 2 * 2 = 4
+const firstName = "Chris";
+const lastName = "Lee";
+const fullName = firstName + lastName;
+console.log(fullName); // Chris Lee
