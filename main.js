@@ -1,14 +1,19 @@
 /**
- * 
- *  Bài tập 1: Sử dụng kiến thức về toán tử gán và toán tử số học để tạo các biến a, b, c, d thỏa mãn các yêu cầu sau đây:
-        a là 1 số dương
-        b là 1 số âm
-        c là kết quả của a + b
-        d là kết quả của a - b
- * 
+ *  Bài tập : Ôn tập về toán tử ++ và --
  */
 
-var a = 1;
-var b = -1;
-var c = a + b;
-var d = a - b;
+var number = 6;
+
+var output = number++ + --number;
+
+console.log({ output });
+
+/**
+    var a = 1;
+    var b = ++a * a--;
+    console.log(b); // Output: ?
+ */
+
+var x = 1;
+var y = ++x * x--;
+console.log(y); // 2 * 2 = 4
