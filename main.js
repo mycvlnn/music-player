@@ -1,8 +1,12 @@
 /**
- * Học về toán tử nối chuổi
+ * Học về toán tử so sánh trong javascript
  */
 
-const firstName = "Chris";
-const lastName = "Lee";
-const fullName = firstName + lastName;
-console.log(fullName); // Chris Lee
+const a = 1;
+const b = 1;
+
+console.log(a == b); // true
+
+const c = "Chris";
+const d = "chris";
+console.log(c == d); // false
