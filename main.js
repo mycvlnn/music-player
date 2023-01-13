@@ -1,19 +1,13 @@
 /**
- * Câu lệnh điều kiện if else
- * 6 giá trị sau khi convert sang kiểu boolean sẽ là false:
- * 1. false
- * 2. 0
- * 3. '' || ""
- * 4. null
- * 5. NaN
- * 6. undefined
+    Học về toán tử logical
  */
 
 const a = 1;
 const b = 2;
-const isSuccess = a > b; // false
+const c = 3;
 
-if (isSuccess) {
+if (a > b && b > c) {
+  // this is logical operators
   console.log("DIEU KIEN DUNG");
 } else {
   console.log("DIEU KIEN SAI");
