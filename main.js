@@ -1,12 +1,28 @@
-/**
- * So sánh tuyệt đối trong javascript
- * ===
- * !==
- */
+// Học về hàm
 
-const a = 1;
-const b = "1";
-console.log(a == b); // true
-console.log(a === b); // false
+function writeLog(message) {
+  console.log(message); // undefined trong trường hợp không nhận đối số nào
+}
 
-console.log(a != b); // false
+writeLog();
+
+// Tìm hiểu về đối tượng arguments
+
+function say() {
+  let myString = "";
+  for (let param of arguments) {
+    console.log(param);
+    myString += `${param}-`;
+  }
+  console.log(myString); // 1-2-3-4-5-
+}
+
+say(1, 2, 3, 4, 5);
+
+// Function return
+
+function triple(x) {
+  return 3 * x;
+}
+
+const result = triple(3); // 9
