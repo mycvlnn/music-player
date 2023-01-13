@@ -1,28 +1,25 @@
-// Học về hàm
+/**
+ * Các loại function
+ * 1. Declaration function
+ * 2. Expression function
+ * 3. Arrow function
+ */
 
-function writeLog(message) {
-  console.log(message); // undefined trong trường hợp không nhận đối số nào
+// 1. Declaration function
+function showMessage() {
+  console.log("message");
 }
 
-writeLog();
+// 2. Expression function
+const myFunction = function () {
+  console.log("My function");
+};
 
-// Tìm hiểu về đối tượng arguments
+setTimeout(function () {
+  console.log("hello");
+}, 100);
 
-function say() {
-  let myString = "";
-  for (let param of arguments) {
-    console.log(param);
-    myString += `${param}-`;
-  }
-  console.log(myString); // 1-2-3-4-5-
-}
-
-say(1, 2, 3, 4, 5);
-
-// Function return
-
-function triple(x) {
-  return 3 * x;
-}
-
-const result = triple(3); // 9
+// Ngoài ra bạn có thể đặt tên cho expression function như thế này
+setInterval(function countdown() {
+  console.log("hello");
+}, 100);
