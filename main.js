@@ -1,29 +1,59 @@
+// Làm việc với chuỗi
+var myString = "Học JS tại F8 JS";
+
 /**
- * CHUỖI TRONG JAVASCRIPT
- * 1. Tạo chuỗi
- *    - Các cách tạo chuỗi
- *    - Nên dùng cách nào? Lý do
- *    - Kiểm tra data type
- * 2. Một số case sử dụng backslash
- * 3. Xem độ dài chuỗi
- * 4. Template string ES6
+ * 1. Length
+ * 2. Find index
+ * 3. Cut string
+ * 4. Replace
+ * 5. Convert to upper case
+ * 6. Convert to lower case
+ * 7. Trim
+ * 8. Split
+ * 9. Get a character by index
  */
 
-// c1:
-const myName = "Le Ngoai Ngu";
+// 1. Length
+console.log(myString.length); // return 13
 
-// c2:
-const myName2 = new String("Le Ngoai Ngu"); // Cách này thì chỉ để biết thôi
+// 2. Find index
+const index1 = myString.indexOf("JS");
+console.log(index1); // return 4 bắt đầu từ vị trí 0
 
-console.log(typeof myName); // return string
+const index2 = myString.search("F8"); // cái này có thể search theo regex
+console.log(index2);
 
-// 2. Backslash
-const myName3 = "Le Ngoai Ngu la 'Sieu nhan'"; // Le Ngoai Ngu la 'Sieu nhan'
-const myName4 = 'Le Ngoai Ngu la "Sieu nhan"'; // Le Ngoai Ngu la "Sieu nhan"
+const index3 = myString.lastIndexOf("JS"); // Index sẽ là giá trị tìm thấy cuối cùng
+console.log(index3); // return 14
 
-// 3. Xem độ dài chuỗi
-const lengthName = myName3.length;
+// 3. Cut string
+const myString1 = "Xin chao";
+const newString = myString1.slice(4); // return chao
+const newString1 = myString1.substring(0, 3); // return xin
 
-// 4. Template string
-const age = 18;
-const text = `Toi nam nay ${age} tuoi`; // Toi nam nay 18 tuoi
+// 4. Replace
+const myString2 = "Hello Capichi";
+const newString2 = myString2.replace("Hello", "Xin chao"); // return Xin chao Capichi
+const newString3 = myString2.replace(/i/g, "a"); // return Hello Capacha
+
+// 5. Convert to upper case, lower case
+const myString3 = "Hello guys";
+console.log(myString3.toUpperCase()); // return HELLO GUYS
+console.log(myString3.toLowerCase()); // return hello guys
+
+// 6. trim
+const myString4 = "     hello guys     ";
+console.log(myString4.trim()); // return hello guys
+
+// 7. Split
+
+const myText = "Javascript,PHP,Ruby";
+const myArr = myText.split(",");
+console.log({ myArr });
+
+// 8. Get a character by index
+const myText1 = "Hello world Capichi";
+console.log(myText1[0]); // return H
+console.log(myText1.charAt(0)); // return 'H'
+console.log(myText1.charAt(100)); // return ''
+console.log(myText1[100]); // return undefined
