@@ -1,43 +1,27 @@
-// Làm việc với số trong javascript
+// Làm việc với mảng trong javascript
 
 /**
-  1. Tạo giá trị  Number
-    1. Các cách tạo
-    2. Dùng cách nào? Tại sao?
+ * 1. Tạo mảng
+    1. cách tạo mảng
+    2. Sử dụng cách nào? Tại sao?
     3. Kiểm tra data type
-    4. Số NaN
-    5. Số vô cực (Infinity)
-  2. Làm việc với Number
-    1. To string
-    2. To Fixed
+2. Truy xuất mảng
+    1. Độ dài mảng
+    2. Lấy phần tử theo index
  */
 
-// 1. Cách tạo
-const myAge = 18;
-const PI = 3.14;
-const otherNumer = new Number(1); // Cách này thì không dùng trong thực tế
+// 1.1 Các cách tạo mảng
+// c1
+var arr = [1, "hi", null, undefined, NaN, function () {}, {}];
+// c2: không nên dùng
+var arr1 = new Array(1, "hi", null, undefined, NaN, function () {}, {});
 
-// 2. Dùng cách nào thì bạn tự nhìn bên trên rồi quết định nhé
+// 1.3 kiểm tra xem có phải là mảng hay không
+console.log(Array.isArray([1, 2, 3])); // true
+console.log({}); // return false
 
-// 3. Kiểm tra data type
-console.log(typeof myAge); // return 'number'
+// 1.3 lấy ra độ dài của mảng
+console.log(arr.length);
 
-// 4. Số NaN
-const numberNaN1 = 0 / 0;
-console.log(numberNaN1); // return NaN: Đây là số không hợp lệ
-console.log(typeof numberNaN1); // return 'number'
-
-const numberNaN2 = 10 / "hello";
-console.log(numberNaN2); // NaN
-console.log(typeof numberNaN2); // return 'number'
-
-// 5. Số vô cực Infinity
-const numInfinity = 10 / 0;
-console.log(numInfinity); // Infinity
-console.log(typeof numInfinity); // 'number'
-
-// II. Làm việc với Number
-
-const b = 2023.2023;
-console.log(b.toString()); // return '2023.2023'
-console.log(b.toFixed(2)); // return '2023.20'
+// 1.4 Lấy ra phần tử theo index
+console.log(arr[0]); // return 1
