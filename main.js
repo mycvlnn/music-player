@@ -1,66 +1,41 @@
-// Date object in Javascript
+// Math object
 
-const date = new Date();
+// Math.PI
+const PI = Math.PI;
+console.log(PI); // 3.141592653589793
+// Math.round()
+console.log(Math.round(PI)); // Làm tròn phần nguyên
 
-console.log(date);
+// Math.abs()
+const x = -10;
+console.log(Math.abs(x)); // 10
+// Math.ceil() : Làm tròn trên
+console.log(Math.ceil(PI)); // 4
 
-// 1. Lấy ra ngày
-const day = date.getDate();
-console.log(day); // 17
+// Math.floor() : Làm tròn dưới
+console.log(Math.floor(PI)); // 3
 
-// 2. Lấy ra tháng
-const month = date.getMonth(); // 0 -11
-console.log(month); // 0 : Vì đang là tháng 1
+// Math.random()
+console.log(Math.random()); // 0.14397898718014113
 
-// 3. Lấy ra năm
-const year = date.getFullYear();
-console.log(year); // 2023
+const gifts = ["Hoa", "Laptop", "Motobike"];
 
-const display = `${day}-${month + 1}-${year}`; // 17-1-2023
+const random = Math.floor(Math.random() * 3);
 
-// 4. Lấy ra giờ
-const hours = date.getHours(); // return 16
+const myGift = gifts[random];
+console.log(myGift);
 
-// 5. Lấy ra phút
-const minutes = date.getMinutes();
+// ứng dụng cho việc tỉ lệ radom 1 -> 100%
+const newRandom = Math.floor(Math.random() * 100);
+if (newRandom < 10) {
+  console.log("Ban nhan duoc 10 kim cuong");
+}
 
-// 6. Lấy ra giây
-const seconds = date.getSeconds();
+// Math.min()
+const numbers = [1, 2, 3, 4, 5];
+const min = Math.min(...numbers);
+console.log(min); // 1
 
-const display1 = `${hours}:${minutes}:${seconds}`;
-console.log(display1); // 16:17:13
-
-// 7. Date.now()
-const timestamp = Date.now();
-console.log(timestamp); // 1673947080237
-
-// 8. Date.getTime()
-const timestamp1 = date.getTime();
-console.log(timestamp1); // 1673947080237
-
-// II. Set date
-const date1 = new Date();
-
-// 1. set ngày
-date1.setDate(5);
-// 2. set tháng
-date1.setMonth(4);
-// 3. set năm
-date1.setFullYear(2005);
-
-const display3 = `${date1.getDate()}/${
-  date1.getMonth() + 1
-}/${date1.getFullYear()}`;
-console.log(display3); // 5/5/2005
-
-// 4. set giờ
-date1.setHours(5);
-
-// 5. set phút
-date1.setMinutes(5);
-
-// 6. set giây
-date1.setSeconds(5);
-
-const display4 = `${date1.getHours()}:${date1.getMinutes()}:${date1.getSeconds()}`;
-console.log(display4); // 5:5:5
+// Math.max()
+const max = Math.max(...numbers);
+console.log(max); // 5
