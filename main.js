@@ -1,42 +1,23 @@
-// Làm việc với object trong javascript
+// Object contructor in Javascript
 
-// 1. Tạo object
+const User = function (firstName, lastName) {
+  this.firstName = firstName;
+  this.lastName = lastName;
 
-const newKey = "birth-day";
-
-const student = {
-  id: 1,
-  name: "Chris",
-  age: 18,
-  "my-key": "this is my key",
-  [newKey]: "20/10/2022", // Tạo key dựa vào một biến bên ngoài
-  getName: function () {
-    // Nếu trong trường hợp là function => ta sẽ gọi là method
-    return this.name;
-  },
+  this.getFullName = function () {
+    return `${this.firstName} ${this.lastName}`;
+  };
 };
 
-// 2. Truy xuất value object
+const tuan = new User("Hoang", "Tuan");
+const cong = new User("Cong", "Tuan");
+console.log(tuan);
 
-const idStudent = student.id; // 1
-const keyStudent = "name";
+// 1. Truy xuất thuộc tính của đối tượng đó
+const fullName = tuan.getFullName(); // Hoang Tuan
 
-// 2.1 Truy xuất name student dựa vào một biến bên ngoài
-const nameStudent = student[keyStudent];
-console.log(nameStudent); // Chris
-const myBirthDay = student[newKey];
-console.log(myBirthDay);
+// 2. bổ sung thuộc tính cho object đó
+tuan.age = 18;
 
-// 2. 3 Trong trường hợp truy cập vào một key mà không tồn tại trong object đó => return undefined
-const hobby = student.hobby;
-console.log(hobby); // undefined
-
-// 3. Tạo thêm một thuộc tính cho object
-student.phone = 09912321312;
-
-console.log(student);
-
-// 4. Xoá thuộc tính trong object
-delete student.phone;
-
-console.log(student);
+console.log(cong);
+console.log(tuan); // Đối tượng tuan sẽ có thêm key age
