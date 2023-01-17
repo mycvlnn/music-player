@@ -1,4 +1,4 @@
-// Object contructor in Javascript
+// Object prototype in Javascript
 
 const User = function (firstName, lastName) {
   this.firstName = firstName;
@@ -9,15 +9,23 @@ const User = function (firstName, lastName) {
   };
 };
 
-const tuan = new User("Hoang", "Tuan");
-const cong = new User("Cong", "Tuan");
-console.log(tuan);
+// 1. Add thêm thuộc tính vào trong Object contructor
+User.prototype.company = "Capichi";
 
-// 1. Truy xuất thuộc tính của đối tượng đó
-const fullName = tuan.getFullName(); // Hoang Tuan
+const chris = new User("Lee", "Chris");
+console.log(chris);
+const nameCompany = chris.company;
+// Truy xuất tên công ty
+console.log(nameCompany);
 
-// 2. bổ sung thuộc tính cho object đó
-tuan.age = 18;
+// 2. Add thêm phương thức vào trong Object contructor
 
-console.log(cong);
-console.log(tuan); // Đối tượng tuan sẽ có thêm key age
+User.prototype.work = function () {
+  return `${this.firstName} working...`;
+};
+
+console.log(chris.work()); // Lee working...
+
+// 3. Xoá key object contructor
+
+delete User.prototype.company;
