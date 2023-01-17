@@ -1,28 +1,6 @@
-var day;
-switch (new Date().getDay()) {
-  case 0:
-    day = "Sunday";
-    break;
-  case 1:
-    day = "Monday";
-    break;
-  case 2:
-    day = "Tuesday";
-    break;
-  case 3:
-    day = "Wednesday";
-    break;
-  case 4:
-    day = "Thursday";
-    break;
-  case 5:
-    day = "Friday";
-    break;
-  case 6:
-    day = "Saturday";
-    break;
-  default:
-    day = "Unknown Day";
-}
+// Toán tử 3 ngôi (Tenary operator)
 
-console.log(day); // Tuesday
+const age = 18;
+
+const teenAge = age > 18 ? "Bạn đã trưởng thành" : "Bạn chưa đủ tuổi";
+console.log(teenAge);
