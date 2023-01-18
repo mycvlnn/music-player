@@ -1,7 +1,19 @@
-// For loop
+// For in
 
-const cars = ["BMW", "Volvo", "Saab", "Ford"];
+const student = {
+  id: 1,
+  name: "chris",
+  phone: 1232131321321,
+};
 
-for (let i = 0; i < cars.length; i++) {
-  console.log(cars[i]);
+for (let key in student) {
+  console.log(key);
+  console.log(student[key]);
+}
+
+const myCourses = ["Javascript", "PHP", "Ruby"];
+
+for (let key in myCourses) {
+  console.log(key);
+  console.log(myCourses[key]);
 }
