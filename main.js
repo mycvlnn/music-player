@@ -1,6 +1,7 @@
-// Toán tử 3 ngôi (Tenary operator)
+// For loop
 
-const age = 18;
+const cars = ["BMW", "Volvo", "Saab", "Ford"];
 
-const teenAge = age > 18 ? "Bạn đã trưởng thành" : "Bạn chưa đủ tuổi";
-console.log(teenAge);
+for (let i = 0; i < cars.length; i++) {
+  console.log(cars[i]);
+}
