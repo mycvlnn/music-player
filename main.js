@@ -1,21 +1,33 @@
-// Vòng lặp do while. ứng dụng cho việc nạp thẻ 3 lần trong trường hợp server trả về  lỗi
+// Học break and continue
 
-const isSuccess = false;
+// 1. break
 
-const statusServer = true;
+// 1.1 Loop
 
-var i = 0;
+for (var i = 0; i < 10; i++) {
+  if (i === 3) break;
+  console.log(i);
+}
 
-do {
-  i++;
-  console.log(`Nap the lan: ${i}`);
+// 1.2 switch
 
-  if (statusServer) {
-    isSuccess = true;
-    console.log("Nap the thanh cong");
-  }
+const today = "Wed";
 
-  if (!statusServer && i >= 3) {
-    console.log("nap the that bai");
-  }
-} while (!isSuccess && i <= 3);
+switch (today) {
+  case "Wed":
+    console.log("Today is Wednesday");
+    break;
+  case "Tue":
+    console.log("Today is Tuesday");
+
+  default:
+    break;
+}
+
+// 2. continue: Lấy ra số lẻ
+
+for (var i = 1; i < 10; i++) {
+  if (i % 2 === 0) continue;
+
+  console.log(i);
+}
