@@ -1,23 +1,8 @@
-// For of
+// While loop
 
-// 1. Trường hợp đối với array
+var i = 0;
 
-const myCourses = ["Js", "PHP", "Ruby"];
-
-for (let value of myCourses) {
-  console.log(value);
-}
-
-// 2. Trường hợp đối với object
-
-const info = {
-  id: 1,
-  name: "Chris",
-  phone: 19008198,
-};
-
-const keysInfo = Object.keys(info);
-
-for (let key of keysInfo) {
-  console.log(info[key]);
+while (i < 100) {
+  i++;
+  console.log(i);
 }
