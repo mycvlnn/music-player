@@ -1,33 +1,7 @@
-// Học break and continue
+// Javascript Sets
 
-// 1. break
+const courses = new Set(["javascript", "java", "java", "html", "html"]);
+console.log(courses); // return object set
 
-// 1.1 Loop
-
-for (var i = 0; i < 10; i++) {
-  if (i === 3) break;
-  console.log(i);
-}
-
-// 1.2 switch
-
-const today = "Wed";
-
-switch (today) {
-  case "Wed":
-    console.log("Today is Wednesday");
-    break;
-  case "Tue":
-    console.log("Today is Tuesday");
-
-  default:
-    break;
-}
-
-// 2. continue: Lấy ra số lẻ
-
-for (var i = 1; i < 10; i++) {
-  if (i % 2 === 0) continue;
-
-  console.log(i);
-}
+const coursesUpdated = [...courses];
+console.log(coursesUpdated); // convert to array
