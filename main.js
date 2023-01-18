@@ -1,19 +1,23 @@
-// For in
+// For of
 
-const student = {
-  id: 1,
-  name: "chris",
-  phone: 1232131321321,
-};
+// 1. Trường hợp đối với array
 
-for (let key in student) {
-  console.log(key);
-  console.log(student[key]);
+const myCourses = ["Js", "PHP", "Ruby"];
+
+for (let value of myCourses) {
+  console.log(value);
 }
 
-const myCourses = ["Javascript", "PHP", "Ruby"];
+// 2. Trường hợp đối với object
 
-for (let key in myCourses) {
-  console.log(key);
-  console.log(myCourses[key]);
+const info = {
+  id: 1,
+  name: "Chris",
+  phone: 19008198,
+};
+
+const keysInfo = Object.keys(info);
+
+for (let key of keysInfo) {
+  console.log(info[key]);
 }
