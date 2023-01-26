@@ -1,13 +1,13 @@
-// String / Array includes method
+// What's callback?
 
-// 1. string
+function myFn(param) {
+  if (typeof param === "function") {
+    param("Hello world");
+  }
+}
 
-const slogan = "Hello world";
-const isExist = slogan.includes("r");
-console.log({ isExist });
+function myCallback(message) {
+  console.log(message);
+}
 
-// 2. array
-
-const courses = ["js", "php", "ruby"];
-const hasFeCoure = courses.includes("js");
-console.log({ hasFeCoure });
+myFn(myCallback);
