@@ -1,39 +1,13 @@
-// Logic của phương thức reduce
+// String / Array includes method
 
-Array.prototype.reduce2 = function (callback, initValue) {
-  let result = initValue;
-  let i = 0;
+// 1. string
 
-  if (initValue) {
-    i = 1;
-    result = this[0];
-  }
+const slogan = "Hello world";
+const isExist = slogan.includes("r");
+console.log({ isExist });
 
-  for (; i < this.length; i++) {
-    result = callback(result, this[i], i, this);
-  }
+// 2. array
 
-  return result;
-};
-
-const courses = [
-  {
-    id: 1,
-    name: "Java",
-    cost: 10,
-  },
-  {
-    id: 2,
-    name: "Javascript",
-    cost: 2,
-  },
-];
-
-const handleTotalCoin = (total, item, index, arr) => {
-  console.log(total, item, index, arr);
-  return total + item.cost;
-};
-
-const result = courses.reduce2(handleTotalCoin, 0);
-
-console.log({ result });
+const courses = ["js", "php", "ruby"];
+const hasFeCoure = courses.includes("js");
+console.log({ hasFeCoure });
