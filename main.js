@@ -8,7 +8,7 @@ const text1 = headingElement.innerText;
 const text2 = headingElement.textContent;
 
 console.log(text1); // như những gì chúng ta nhìn thấy trên trình duyệt
-console.log(text2); // Như những gì trong code html
+console.log(text2); // Như những gì trong code html chỉ cần nó năm trong thẻ mở và thẻ đóng thì sẽ được hiểu là text.
 
 // 2. setter
 headingElement.innerText = `Xin chào thế giới
