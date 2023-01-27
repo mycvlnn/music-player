@@ -1,12 +1,22 @@
-// DOM elements 2
+// DOM attribute
+/**
+ * - có 2 cách để có thể set attribute và get attribute
+    - Trực tiếp
+    - Thông qua phương thức
+ */
 
-// giả sử bạn có 2 công việc:
-
-// 1. lấy ra đối tượng boxElement
 const boxElement = document.querySelector(".box");
 console.log({ boxElement });
 
-// 2. Lấy ra đối tượng li và phần tử p
-const liElement = boxElement.querySelector("li");
-const pElement = boxElement.querySelector("p");
-console.log({ liElement, pElement });
+// 1. Trực tiếp
+boxElement.id = "box";
+const aElement = document.querySelector("a");
+aElement.href = "https://fullstack.edu.vn";
+
+// 1.1 get value của thuộc tính đó
+const textLink = aElement.href;
+
+// 2. Thông qua phương thức
+aElement.setAttribute("target", "_blank");
+const valueTarget = aElement.getAttribute("target");
+console.log(valueTarget);
