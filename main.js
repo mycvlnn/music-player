@@ -1,22 +1,20 @@
-// innerText, textContent
+// innerHTML and outerHTML
 
-const headingElement = document.getElementById("heading");
-console.log({ headingElement });
+// 1. innerHTML: Chỉnh sửa phần tử con bên trong phần tử cha gọi phương thức này
+const boxElement = document.querySelector(".box");
+console.log({ boxElement });
 
-// 1. getter
-const text1 = headingElement.innerText;
-const text2 = headingElement.textContent;
+// 1.1 set
+boxElement.innerHTML = "<h1>Xin chao cac ban minh ten la Le Ngoai Ngu</h1>";
 
-console.log(text1); // như những gì chúng ta nhìn thấy trên trình duyệt
-console.log(text2); // Như những gì trong code html chỉ cần nó năm trong thẻ mở và thẻ đóng thì sẽ được hiểu là text.
+// 1.2 get
+const valueBox = boxElement.innerHTML;
+console.log({ valueBox });
 
-// 2. setter
-headingElement.innerText = `Xin chào thế giới
+// 2. outerHTML: chỉnh sửa chính phần tử gọi thuộc tính này
 
-Chúng ta là anh em một nhà
-`; // trên trình duyệt sẽ hiển thị y hệt như thế này
+// 2.1 set
+boxElement.outerHTML = "<div>Replace box</div>";
 
-headingElement.textContent = `Xin chào thế giới
-
-Chúng ta là anh em một nhà
-`; // trên trình duyệt sẽ bỏ qua các khoảng trắng
+// 2.2 get
+console.log(boxElement.outerHTML);
