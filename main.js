@@ -1,4 +1,7 @@
-// node properties
-
+// DOM style
 const boxElement = document.querySelector(".box");
-console.log({ boxElement }); // tự log lên mà nhìn nha em
+
+Object.assign(boxElement.style, {
+  background: "red",
+  color: "white",
+});
