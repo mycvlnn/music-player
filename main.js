@@ -1,22 +1,22 @@
-// DOM attribute
-/**
- * - có 2 cách để có thể set attribute và get attribute
-    - Trực tiếp
-    - Thông qua phương thức
- */
+// innerText, textContent
 
-const boxElement = document.querySelector(".box");
-console.log({ boxElement });
+const headingElement = document.getElementById("heading");
+console.log({ headingElement });
 
-// 1. Trực tiếp
-boxElement.id = "box";
-const aElement = document.querySelector("a");
-aElement.href = "https://fullstack.edu.vn";
+// 1. getter
+const text1 = headingElement.innerText;
+const text2 = headingElement.textContent;
 
-// 1.1 get value của thuộc tính đó
-const textLink = aElement.href;
+console.log(text1); // như những gì chúng ta nhìn thấy trên trình duyệt
+console.log(text2); // Như những gì trong code html
 
-// 2. Thông qua phương thức
-aElement.setAttribute("target", "_blank");
-const valueTarget = aElement.getAttribute("target");
-console.log(valueTarget);
+// 2. setter
+headingElement.innerText = `Xin chào thế giới
+
+Chúng ta là anh em một nhà
+`; // trên trình duyệt sẽ hiển thị y hệt như thế này
+
+headingElement.textContent = `Xin chào thế giới
+
+Chúng ta là anh em một nhà
+`; // trên trình duyệt sẽ bỏ qua các khoảng trắng
