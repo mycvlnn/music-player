@@ -1,21 +1,10 @@
-let valueSearch = "";
-
-const inputSearch = document.querySelector('input[type="text"]');
-inputSearch.oninput = function (e) {
-  valueSearch = e.target.value;
+const h1Element = document.querySelector("h1");
+h1Element.onclick = function (e) {
+  console.log("click parent");
 };
 
-const btnSubmit = document.forms["search"];
-console.log({ btnSubmit });
-btnSubmit.onsubmit = function (e) {
-  e.preventDefault();
-  console.log("submitting...", valueSearch);
-};
-
-document.onkeyup = function (e) {
-  switch (e.code) {
-    case "Enter": {
-      console.log(valueSearch);
-    }
-  }
+const btnElement = document.querySelector("button");
+btnElement.onclick = function (e) {
+  e.stopPropagation(); // ngăn chặn sự kiện nổi bọt
+  console.log("click me");
 };
