@@ -1,11 +1,37 @@
-// DOM Event
-// 1. Attribute events => done bên file html
-// 2. Assign event using the HTML DOM
+let data = {
+  name: "",
+  gender: false,
+  yearOfBirth: null,
+};
 
-const boxElements = document.querySelectorAll(".box");
+const inputName = document.querySelector('input[type="text"]');
+inputName.oninput = function (e) {
+  data.name = e.target.value;
+};
 
-for (boxElement of boxElements) {
-  boxElement.onclick = function (e) {
-    console.log(e.target);
-  };
-}
+const inputGender = document.querySelector('input[type="checkbox"]');
+inputGender.onchange = function (e) {
+  data.gender = e.target.checked;
+};
+
+const yearOfBirth = document.querySelector("select");
+yearOfBirth.onchange = function (e) {
+  data.yearOfBirth = e.target.value;
+};
+
+const btnSubmit = document.querySelector("button");
+btnSubmit.onclick = function () {
+  alert("submit");
+  // Dữ liệu gửi lên phía server.
+  console.log({ data });
+};
+
+document.onkeyup = function (e) {
+  switch (e.code) {
+    case "Enter": {
+      alert("submit");
+      // Dữ liệu gửi lên phía server.
+      console.log({ data });
+    }
+  }
+};
