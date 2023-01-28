@@ -6,12 +6,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Javascript basic</title>
+    <style>
+        ul {
+            display: none;
+        }
+
+        input:focus~ul {
+            display: block;
+        }
+    </style>
 </head>
 
 <body>
-    <a href="https://picsum.photos/1000">Trang ảnh đẹp</a>
-    <br>
-    <a href="https://f8.edu.vn">Trang học lập trình</a>
+    <input type="text">
+    <ul id="box">
+        <li data-course="javascript">Javascript</li>
+        <li data-course="PHP"> PHP</li>
+        <li data-course="Ruby">Ruby</li>
+    </ul>
 
     <script src="main.js"></script>
 </body>

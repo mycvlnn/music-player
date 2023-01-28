@@ -1,9 +1,9 @@
-const redirects = document.links;
-
-for (const redirect of redirects) {
-  redirect.onclick = function (e) {
-    if (e.target.href.startsWith("https://f8.edu.vn")) {
-      e.preventDefault();
-    }
-  };
-}
+const boxElement = document.getElementById("box");
+boxElement.onmousedown = function (e) {
+  e.preventDefault();
+  const item = e.target;
+  if (item.dataset.course) {
+    console.log(item.dataset.course);
+  }
+  console.log({ data: e.target });
+};
