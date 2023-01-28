@@ -1,17 +1,15 @@
-const btnElement = document.querySelector("button");
+const data = '["javascript","PHP", "ruby"]'; // json
 
-function work1() {
-  console.log("work 1");
-}
+console.log(JSON.parse(data)); // return array
 
-function work2() {
-  console.log("work 2");
-}
+const data1 = '{"name": "chris","age": "18", "birthday": "02/03/2003"}';
+console.log(JSON.parse(data1));
 
-btnElement.addEventListener("click", work1);
-btnElement.addEventListener("click", work2);
+const info = {
+  name: "Lee Chris",
+  age: 18,
+  address: "Hong son, My duc, Ha noi",
+};
 
-setTimeout(function () {
-  // Huỷ sự kiện đối với công việc 1
-  btnElement.removeEventListener("click", work1);
-}, 3000);
+console.log(JSON.stringify(info));
+console.log(JSON.parse('"string"'));
