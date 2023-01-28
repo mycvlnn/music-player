@@ -1,10 +1,9 @@
-const h1Element = document.querySelector("h1");
-h1Element.onclick = function (e) {
-  console.log("click parent");
-};
+const redirects = document.links;
 
-const btnElement = document.querySelector("button");
-btnElement.onclick = function (e) {
-  e.stopPropagation(); // ngăn chặn sự kiện nổi bọt
-  console.log("click me");
-};
+for (const redirect of redirects) {
+  redirect.onclick = function (e) {
+    if (e.target.href.startsWith("https://f8.edu.vn")) {
+      e.preventDefault();
+    }
+  };
+}
