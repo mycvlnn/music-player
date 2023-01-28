@@ -1,37 +1,21 @@
-let data = {
-  name: "",
-  gender: false,
-  yearOfBirth: null,
+let valueSearch = "";
+
+const inputSearch = document.querySelector('input[type="text"]');
+inputSearch.oninput = function (e) {
+  valueSearch = e.target.value;
 };
 
-const inputName = document.querySelector('input[type="text"]');
-inputName.oninput = function (e) {
-  data.name = e.target.value;
-};
-
-const inputGender = document.querySelector('input[type="checkbox"]');
-inputGender.onchange = function (e) {
-  data.gender = e.target.checked;
-};
-
-const yearOfBirth = document.querySelector("select");
-yearOfBirth.onchange = function (e) {
-  data.yearOfBirth = e.target.value;
-};
-
-const btnSubmit = document.querySelector("button");
-btnSubmit.onclick = function () {
-  alert("submit");
-  // Dữ liệu gửi lên phía server.
-  console.log({ data });
+const btnSubmit = document.forms["search"];
+console.log({ btnSubmit });
+btnSubmit.onsubmit = function (e) {
+  e.preventDefault();
+  console.log("submitting...", valueSearch);
 };
 
 document.onkeyup = function (e) {
   switch (e.code) {
     case "Enter": {
-      alert("submit");
-      // Dữ liệu gửi lên phía server.
-      console.log({ data });
+      console.log(valueSearch);
     }
   }
 };
