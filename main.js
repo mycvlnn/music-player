@@ -23,13 +23,20 @@ const promise = new Promise(executor);
 promise
   .then(function (data) {
     console.log({ data });
-    // todo
+
+    // trong trường hợp hàm này lại trả về một promise
+    return new Promise(function (resolve, reject) {
+      setTimeout(function () {
+        return resolve([1, 2, 3]);
+      }, 3000);
+    });
+  })
+  .then(function (data) {
+    console.log("data new", data);
   })
   .catch(function (error) {
     console.log(error);
-    // todo
   })
   .finally(function () {
-    // todo
     console.log("finally");
   });
