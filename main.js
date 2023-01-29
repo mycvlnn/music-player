@@ -1,37 +1,84 @@
-// Promise static method
+// practice promise
 
-// 1. Promise.resolve
-const promise = Promise.resolve([1, 2, 3]);
+const users = [
+  {
+    id: 1,
+    name: "Chris",
+    avatar:
+      "https://files.fullstack.edu.vn/f8-prod/user_photos/183516/62343254a7beb.jpg",
+  },
+  {
+    id: 2,
+    name: "Son dang",
+    avatar:
+      "https://fullstack.edu.vn/static/media/fallback-avatar.155cdb2376c5d99ea151.jpg",
+  },
+  {
+    id: 3,
+    name: "Ngoc anh",
+    avatar:
+      "https://files.fullstack.edu.vn/f8-prod/user_photos/247266/6321797fa05d7.jpg",
+  },
+];
 
-promise.then(function (data) {
-  console.log("data", data); // [1, 2, 3]
-});
+const comments = [
+  {
+    id: 1,
+    user_id: 1,
+    message: "Xem lú luôn",
+  },
+  {
+    id: 2,
+    user_id: 2,
+    message: "Xem vài lần mới hiểu được Promise",
+  },
+];
 
-// 2. Promise.reject
-const promise2 = Promise.reject("Something went wrong!");
-promise2.catch((error) => console.log(error)); // Something went wrong!
+function getComments() {
+  return new Promise((resolve) => {
+    setTimeout(function () {
+      resolve(comments);
+    }, 1000);
+  });
+}
 
-// 3. Promise.all
+function getUserByIds(ids = []) {
+  return new Promise((resolve) => {
+    setTimeout(function () {
+      const data = users.filter((user) => ids.includes(user.id));
 
-const newPromise1 = new Promise((resolve) => {
-  setTimeout(function () {
-    resolve([1, 2, 3]);
-  }, 1000);
-});
+      resolve(data);
+    }, 1000);
+  });
+}
 
-const newPromise2 = new Promise((resolve) => {
-  setTimeout(function () {
-    resolve([4, 5, 6]);
-  }, 2000);
-});
+getComments()
+  .then(function (comments) {
+    const userIds = comments.map((comment) => comment.user_id);
 
-const promiseAll = Promise.all([newPromise1, newPromise2]);
-
-promiseAll
-  .then(function ([data1, data2]) {
-    const numbers = data1.concat(data2);
-    console.log({ numbers });
+    return getUserByIds(userIds).then(function (users) {
+      return comments.map((comment) => {
+        return {
+          ...comment,
+          user: users.find((item) => item.id === comment.user_id),
+        };
+      });
+    });
   })
-  .catch((error) => {
-    console.log(error);
+  .then(function (data) {
+    console.log({ data });
+    const boxCommennt = document.getElementById("comments-block");
+
+    const html = data
+      .map((item) => {
+        return `<li>
+        <img src=${item.user.avatar} width="30" height="30" />
+        <span>
+        ${item.user.name}
+        </span>
+        <div>${item.message}</div>
+      </li>`;
+      })
+      .join();
+    boxCommennt.innerHTML = html;
   });
