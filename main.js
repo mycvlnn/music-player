@@ -1,84 +1,27 @@
-// practice promise
+// fetch api
 
-const users = [
-  {
-    id: 1,
-    name: "Chris",
-    avatar:
-      "https://files.fullstack.edu.vn/f8-prod/user_photos/183516/62343254a7beb.jpg",
-  },
-  {
-    id: 2,
-    name: "Son dang",
-    avatar:
-      "https://fullstack.edu.vn/static/media/fallback-avatar.155cdb2376c5d99ea151.jpg",
-  },
-  {
-    id: 3,
-    name: "Ngoc anh",
-    avatar:
-      "https://files.fullstack.edu.vn/f8-prod/user_photos/247266/6321797fa05d7.jpg",
-  },
-];
+const productApi = "https://dummyjson.com/products/search?q=phone";
+const productElement = document.getElementById("product-list");
 
-const comments = [
-  {
-    id: 1,
-    user_id: 1,
-    message: "Xem lú luôn",
-  },
-  {
-    id: 2,
-    user_id: 2,
-    message: "Xem vài lần mới hiểu được Promise",
-  },
-];
-
-function getComments() {
-  return new Promise((resolve) => {
-    setTimeout(function () {
-      resolve(comments);
-    }, 1000);
-  });
-}
-
-function getUserByIds(ids = []) {
-  return new Promise((resolve) => {
-    setTimeout(function () {
-      const data = users.filter((user) => ids.includes(user.id));
-
-      resolve(data);
-    }, 1000);
-  });
-}
-
-getComments()
-  .then(function (comments) {
-    const userIds = comments.map((comment) => comment.user_id);
-
-    return getUserByIds(userIds).then(function (users) {
-      return comments.map((comment) => {
-        return {
-          ...comment,
-          user: users.find((item) => item.id === comment.user_id),
-        };
-      });
-    });
+fetch(productApi)
+  .then(function (reponse) {
+    if (reponse.ok) return reponse.json();
   })
   .then(function (data) {
-    console.log({ data });
-    const boxCommennt = document.getElementById("comments-block");
+    console.log(data);
 
-    const html = data
-      .map((item) => {
-        return `<li>
-        <img src=${item.user.avatar} width="30" height="30" />
-        <span>
-        ${item.user.name}
-        </span>
-        <div>${item.message}</div>
+    const products = data.products.map((product) => {
+      return `<li>
+        <h2>${product.title}</h2>
+        <p>${product.description}</p>
+        <img src=${product.thumbnail} />
       </li>`;
-      })
-      .join();
-    boxCommennt.innerHTML = html;
+    });
+
+    const html = products.join();
+
+    productElement.innerHTML = html;
+  })
+  .catch(function (reason) {
+    productElement.innerHTML = `<h1>${reason.message}</h1>`;
   });
