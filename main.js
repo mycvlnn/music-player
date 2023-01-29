@@ -1,42 +1,24 @@
-const isSuccess = true; // biến fake trạng thái gọi api thành công hoặc thất bại
+// Viết hàm sleep
+const sleep = function (ms) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, ms);
+  });
+};
 
-function executor(resolve, reject) {
-  // trong trường hợp thành công call resolve()
-  // trong trường hợp thất bại call reject()
-
-  // FAKE API
-  if (isSuccess) {
-    resolve([
-      {
-        id: 1,
-        name: "Javascript",
-        coin: 2000,
-      },
-    ]);
-  }
-
-  reject("Something wrong. Please try again");
-}
-
-const promise = new Promise(executor);
-
-promise
-  .then(function (data) {
-    console.log({ data });
-
-    // trong trường hợp hàm này lại trả về một promise
-    return new Promise(function (resolve, reject) {
-      setTimeout(function () {
-        return resolve([1, 2, 3]);
-      }, 3000);
-    });
+sleep(1000)
+  .then(function () {
+    console.log(1);
+    return sleep(1000);
   })
-  .then(function (data) {
-    console.log("data new", data);
+  .then(function () {
+    console.log(2);
+    return sleep(1000);
   })
-  .catch(function (error) {
-    console.log(error);
+  .then(function () {
+    console.log(3);
+    return sleep(1000);
   })
-  .finally(function () {
-    console.log("finally");
+  .then(function () {
+    console.log(4);
+    return sleep(1000);
   });
