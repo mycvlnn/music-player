@@ -1,13 +1,7 @@
-// classes basic
+// Default parameter: trong trường hợp không truyền thì nó sẽ lấy làm giá trị mặc định
 
-class Course {
-  constructor(id, name) {
-    this.id = id;
-    this.name = name;
-  }
-}
+const logger = (message, type = "log") => {
+  console[type](message);
+};
 
-const javascript = new Course(1, "Javascript");
-const php = new Course(2, "PHP");
-
-console.log({ javascript, php });
+logger("Hello");
