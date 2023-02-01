@@ -1,43 +1,29 @@
-// Học về toán tử destructuring, rest
+// spread
 
-// 1.  Array
+// 1. array
+const arr1 = [1, 2, 3];
+const arr2 = [1, 2, 3];
+const arr3 = [...arr1, ...arr2];
 
-const numbers = [1, 2, 3];
+console.log(arr3); // [1, 2, 3, 1, 2, 3]
 
-const [a, b, c, d = 3] = numbers; // trong trường hợp không có phần tử d => sẽ lấy giá trị default
-console.log({ a, b, c, d });
+// 2. object
 
-const [x, ...rest] = numbers; // rest là những phần tử còn lại của mảng
-console.log(rest); // [2, 3]
-
-const [a1, a2, a3, ...rest1] = numbers;
-console.log(rest1); // []
-
-// 2. Object
-
-// 2.1 destructuring
 const course = {
-  name: "Java",
   id: 1,
-  desc: "Good",
-  children: {
-    name: "Children",
-  },
+  name: "Java",
+  coin: 1000,
 };
 
-const { id, desc, ...rest3 } = course;
+const course2 = { ...course, id: 2 };
+console.log(course2); // {id: 2, name: 'Java', coin: 1000}
 
-// 3. method
+// 3. function
 
-const logger = (...rest) => {
-  console.log(rest); // [1, 2, 3, 4]
+const data = [1, 2, 3, 4];
+
+const logger = (a, b, c, d) => {
+  console.log(a, b, c, d);
 };
 
-logger(1, 2, 3, 4);
-
-const logger2 = ({ id, ...rest }) => {
-  console.log(rest);
-  console.log(id);
-};
-
-logger2({ id: 1, description: "Hihih" });
+logger(...data);
