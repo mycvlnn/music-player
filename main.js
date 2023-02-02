@@ -1,18 +1,6 @@
-// Viết function dùng để highlight các biến cần thiết bằng tagged template string
+// Modules in javascript
+import { TYPE_ERROR, TYPE_LOG, TYPE_WARN as WARN } from "./constants.js";
 
-const highlight = ([firstValue, ...strings], ...values) => {
-  console.log(strings, values);
+import logger from "./logger.js";
 
-  const htmls = values
-    .reduce(
-      (acc, curr) => [...acc, `<span>${curr}</span>`, strings.shift()],
-      [firstValue]
-    )
-    .join("");
-  console.log(htmls);
-};
-
-const brand = "F8";
-const course = "Javascript";
-
-highlight`Học lập trình ${course} tại ${brand}`;
+logger("hello", TYPE_ERROR);
